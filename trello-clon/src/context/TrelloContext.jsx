@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import PropTypes from 'prop-types';
 
 export const TrelloContext = createContext();
 
@@ -25,4 +26,8 @@ export const TrelloContextProvider = (props) => {
             {props.children}
         </TrelloContext.Provider>
     )
+}
+
+TrelloContextProvider.propTypes = {
+    children: PropTypes.node
 }

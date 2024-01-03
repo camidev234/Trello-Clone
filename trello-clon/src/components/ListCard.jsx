@@ -1,8 +1,9 @@
-import { useState, useContext, useEffect } from "react";
+import { useState } from "react";
 import "../assets/css/ListCard.css";
 import { ListButton } from "./ListButton";
+import PropTypes from 'prop-types';
 
-export const ListCard = ({ onUpdateStatus, addIsUsed }) => {
+export const ListCard = ({ onUpdateStatus }) => {
   const [titleContent, setTitleContent] = useState("");
 
   const handleTitleChange = (e) => {
@@ -31,3 +32,7 @@ export const ListCard = ({ onUpdateStatus, addIsUsed }) => {
     </div>
   );
 };
+
+ListCard.propTypes = {
+  onUpdateStatus: PropTypes.func.isRequired
+}

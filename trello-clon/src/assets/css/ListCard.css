@@ -1,8 +1,11 @@
 .listContainer {
+  box-sizing: border-box;
     max-width: 270px;
     min-width: 245px;
-    min-height: 70px;
     background: #2d3748;
+    min-height: 120px;
+    max-height: 80vh;
+    /* max-width: 70vh; */
     border-radius: 10px;
     display: flex;
     flex-direction: column;

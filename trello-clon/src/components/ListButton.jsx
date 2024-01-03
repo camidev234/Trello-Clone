@@ -1,11 +1,11 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { TrelloContext } from "../context/TrelloContext";
 import { BsX, BsPlusLg } from "react-icons/bs";
 import '../assets/css/ListButton.css';
+import PropTypes from 'prop-types';
 
-export const ListButton = ({ onUpdateStatus, addIsUsed }) => {
 
-
+export const ListButton = ({ onUpdateStatus }) => {
 
   const [ btnIsUsed, setBtnIsUsed ] = useState(false);
 
@@ -42,3 +42,7 @@ export const ListButton = ({ onUpdateStatus, addIsUsed }) => {
     </section>
   );
 };
+
+ListButton.propTypes = {
+  onUpdateStatus: PropTypes.func
+}

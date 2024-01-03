@@ -19,6 +19,7 @@ export const ListsContainer = () => {
   }
 
   return (
+    <section className="lContainer">
     <section className="listsContainer">
       {
         listCards.map((card, index) => {
@@ -34,6 +35,7 @@ export const ListsContainer = () => {
         <BsPlusLg />Add Other List
         </button>
       </article>
+    </section>
     </section>
   );
 };
