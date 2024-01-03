@@ -1,39 +1,42 @@
-
-.contBotons {
-    height: 100%;
-}
-
-.actions {
-    min-height: 50px;
-    width: 100%;
-}
-
-.actions #btnOne {
-    min-width: 120px;
-    max-width: 130px;
-    min-height: 33px;
-    max-height: 35px;
-    color: white;
-    outline: none;
-    border: none;
-    border-radius: 7px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    margin-top: 9px;
-  }
-
-
-  
-.actions button:last-child {
+/* .actions button:last-child {
     background: none;
     outline: none;
     border: none;
     cursor: pointer;
+} */
+
+.acMod {
+    max-width: 100%;
+    height: 50px;
+}
+
+.btnContainer {
+    display: flex;
+    gap: 15px;
+    padding-left: 10px;
+}
+
+#second {
+    background: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
 }
 
 .actions #btnOne {
     background-color: #007BFF;
+    border: none;
+    outline: none;
+    width: 120px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.second {
+    border: none;
+    outline: none;
+    width: 30px;
+    height: 30px;
 }
 
 #btnOne:hover {
@@ -48,31 +51,30 @@
     display: none;
 }
 
-.acCont {
+.acTwo {
     width: 100%;
+    height: 50px;
     display: flex;
-    border-radius: 10px;
-}
-
-.acCont .actions #contBtn {
-    display: flex;
-    align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    align-items: center;
+    margin-top: 5px;
 }
 
-#contBtn #boton{
-    width: 100%;
-    height: 70%;
+.acTwo #boton {
     background: rgba(255, 255, 255, 0.1); 
-    border-radius: 10px;  
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 7px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 93%;
+    height: 70%;
+    border-radius: 10px;
 }
 
-#contBtn #boton:hover {
-    background: rgba(255, 255, 255, 0.2); 
+.acTwo #boton:hover {
+    background: rgba(255, 255, 255, 0.3); 
 }
+    

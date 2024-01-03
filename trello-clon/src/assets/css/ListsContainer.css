@@ -2,10 +2,28 @@
   width: 100%;
   min-height: 90vh;
   overflow-x: auto;
+
+  /* Estilos para el scrollbar en navegadores webkit */
+  scrollbar-width: thin;
+  scrollbar-color: #2d3748 #192029;  /* Color del thumb y del track */
+
+  /* Estilos específicos para navegadores webkit (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    width: 12px;  /* Ancho del scrollbar */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #2d3748;  /* Color del thumb */
+    border-radius: 8px;  /* Borde redondeado del thumb */
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #192029;  /* Color del track */
+    border-radius: 8px;  /* Borde redondeado del track */
+  }
 }
 
 .listsContainer {
-  padding-left: 30px;
   padding-top: 25px;
   margin: 0;
   display: flex;

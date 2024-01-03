@@ -8,7 +8,10 @@ export const TrelloContextProvider = (props) => {
     const [ listCards, setListCards ] = useState([]);
 
     const addListCard = () => {
-        setListCards([...listCards, `The card ${listCards.length} is added`]);
+        setListCards([...listCards, {
+            listCardId: listCards.length+1,
+            cards: []
+        }]);
     };
 
     const deleteListCard = () => {
@@ -17,11 +20,25 @@ export const TrelloContextProvider = (props) => {
         setListCards(newArray);
     }
 
+    const addCardInList = (uniqueId) => {
+        const updatedListCards = listCards.map((listCard) => {
+          if (listCard.listCardId === uniqueId) {
+            listCard.cards.push({
+              cardId: listCard.cards.length + 1,
+            });
+          }
+          return listCard;
+        });
+        console.log(updatedListCards);
+        setListCards(updatedListCards);
+      };
+
     return (
         <TrelloContext.Provider value={{
             listCards,
             onAddListCard: addListCard,
-            onDeleteListCard: deleteListCard
+            onDeleteListCard: deleteListCard,
+            onAddCardInList: addCardInList
         }}>
             {props.children}
         </TrelloContext.Provider>

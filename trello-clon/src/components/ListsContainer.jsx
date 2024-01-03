@@ -17,14 +17,15 @@ export const ListsContainer = () => {
   const updateStatus = () => {
     setAddIsUsed(false);
   }
-
   return (
     <section className="lContainer">
     <section className="listsContainer">
       {
-        listCards.map((card, index) => {
+        listCards.map((card) => {
             return (
-                <ListCard key={index} onUpdateStatus={updateStatus} state={addIsUsed}/>
+              <div className="cccc" key={card.listCardId}>
+                <ListCard  onUpdateStatus={updateStatus} state={addIsUsed} uniqueId={card.listCardId}/>
+              </div>
             )
         })
       }

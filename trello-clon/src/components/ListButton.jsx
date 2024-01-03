@@ -5,13 +5,13 @@ import '../assets/css/ListButton.css';
 import PropTypes from 'prop-types';
 
 
-export const ListButton = ({ onUpdateStatus }) => {
+export const ListButton = ({ onUpdateStatus, uniqueId }) => {
 
   const [ btnIsUsed, setBtnIsUsed ] = useState(false);
 
-  const { onDeleteListCard } = useContext(TrelloContext);
+  const { onDeleteListCard, onAddCardInList } = useContext(TrelloContext);
 
-  const deleteCard = () => {
+  const deleteListCard = () => {
     onDeleteListCard();
     onUpdateStatus();
   }
@@ -21,21 +21,25 @@ export const ListButton = ({ onUpdateStatus }) => {
       onUpdateStatus();
   }
 
+  const handleAddCard = () => {
+    onAddCardInList(uniqueId);
+  }
+
   return (
     <section className="contBotons">
-    <div className={!btnIsUsed ? 'addIsVisible actions' : 'addNoVisible actions'}>
-      <button onClick={handleClick} id="btnOne">Add List</button>
-      <button onClick={deleteCard} className="second">
-        <BsX style={{ fontSize: "18px" }} />
-      </button>
+    <div className={!btnIsUsed ? 'addIsVisible actions acMod' : 'addNoVisible actions'}>
+        <div className="btnContainer">
+        <button onClick={handleClick} id="btnOne">Add List</button>
+        <button onClick={deleteListCard} id="second">
+          <BsX style={{ fontSize: "18px" }} />
+        </button>
+      </div>
     </div>
     <div className="acCont">
     {
       btnIsUsed ? 
-        <div className="actions">
-          <div id="contBtn">
-            <button type="submit" id="boton"><BsPlusLg /><span>Add new card</span></button>
-          </div>
+        <div className="actions acTwo">
+            <button type="submit" id="boton" onClick={handleAddCard}><BsPlusLg /><span>Add new card</span></button>
         </div> : null
     }
     </div>
@@ -44,5 +48,6 @@ export const ListButton = ({ onUpdateStatus }) => {
 };
 
 ListButton.propTypes = {
-  onUpdateStatus: PropTypes.func
+  onUpdateStatus: PropTypes.func,
+  uniqueId: PropTypes.number
 }
