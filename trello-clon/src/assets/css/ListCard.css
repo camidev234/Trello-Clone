@@ -1,0 +1,22 @@
+.listContainer {
+    max-width: 270px;
+    min-width: 245px;
+    min-height: 70px;
+    background: #2d3748;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 15px 12px 7px 10px;
+    box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .listContainer .title h5 input {
+    width: 90%;
+    padding: 8px 14px 8px 14px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 7px;
+    background-color: transparent;
+    color: white;
+  }

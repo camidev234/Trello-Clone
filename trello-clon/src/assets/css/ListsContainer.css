@@ -1,0 +1,31 @@
+.listsContainer {
+  display: flex;
+  width: auto;
+  gap: 20px;
+  padding-left: 30px;
+}
+
+.listsContainer .addContainer button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.buttonNotVisible {
+  display: none;
+}
+
+.buttonVisible {
+  display: inline-block;
+  min-width: 200px;
+  max-width: 250px;
+  min-height: 43px;
+  max-height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
