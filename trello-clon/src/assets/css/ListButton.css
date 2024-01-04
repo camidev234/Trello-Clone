@@ -25,6 +25,7 @@
 
 .actions #btnOne {
     background-color: #007BFF;
+    border-radius: 10px;
     border: none;
     outline: none;
     width: 120px;

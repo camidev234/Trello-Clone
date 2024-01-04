@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import "../assets/css/ListCard.css";
 import { ListButton } from "./ListButton";
 import PropTypes from "prop-types";
@@ -13,6 +13,19 @@ export const ListCard = ({ onUpdateStatus, uniqueId }) => {
     setTitleContent(e.target.value);
   };
 
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    // Enfocar el input después de un pequeño retraso para asegurar que se haya renderizado
+    const timeoutId = setTimeout(() => {
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
+    }, 0);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
+
 
   return (
     <div className="listContainer"  >
@@ -23,7 +36,7 @@ export const ListCard = ({ onUpdateStatus, uniqueId }) => {
             value={titleContent}
             onChange={handleTitleChange}
             placeholder="Title here"
-           
+            ref={inputRef}
             required
           />
         </h5>
