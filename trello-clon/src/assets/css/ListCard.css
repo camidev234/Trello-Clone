@@ -79,3 +79,7 @@
     border-radius: 10px;
     display: flex;
 }
+
+.contCard:hover {
+  border: 1px solid white;
+}

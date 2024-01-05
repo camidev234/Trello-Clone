@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import '../assets/css/Card.css'
-import { BsFillTrash3Fill } from "react-icons/bs";
+import { BsFillTrash3Fill, BsEyeFill } from "react-icons/bs";
 import PropTypes from 'prop-types';
 // import { TrelloContext } from '../context/TrelloContext';
 import { ConfirmCard } from './ConfirmCard';
@@ -53,8 +53,9 @@ export const Card = ({ listId, cardIndex }) => {
             ref={textareaRef}
         />
             </article>
-            <article className="delete">
-                <button onClick={openModal}><BsFillTrash3Fill /></button>
+            <article className="actionsCard">
+                <button onClick={openModal}><BsFillTrash3Fill style={{fontSize: '11px'}}/></button>
+                <button><BsEyeFill style={{fontSize: '11px'}}/></button>
             </article>
         </div>
 

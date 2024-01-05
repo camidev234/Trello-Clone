@@ -9,7 +9,7 @@
   }
   
   .card .CardTitle {
-    min-width: 89%;
+    min-width: 87%;
     /* background-color: aqua; */
     min-height: 35px;
     max-height: 100%;
@@ -35,19 +35,28 @@
     border-radius: 5px;
   }
   
-  .card .delete {
+  .card .actionsCard {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    width: 11%;
-    height: 100%;
+    width: 13%;
+    /* height: 100%; */
     margin-top: 5px;
   }
   
-  .delete button {
+  .actionsCard button {
     border: none;
     outline: none;
     background: none;
     cursor: pointer;
+    padding: 2px;
   }
+
+  .actionsCard button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+  }
+
+  
   
