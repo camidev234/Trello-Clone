@@ -2,9 +2,14 @@ import '../assets/css/ModalInfo.css';
 import PropTypes from 'prop-types';
 import { BsX } from 'react-icons/bs';
 import { useRef, useState } from 'react';
+import { useContext } from 'react';
+import { TrelloContext } from '../context/TrelloContext';
 
-export const CardInfo = ({ isOpen, onCloseCardInfo, listName }) => {
-  const [note, setNote] = useState('');
+export const CardInfo = ({ isOpen, onCloseCardInfo, listName, listId, cardIndex }) => {
+
+  const { onSaveCardNotes } = useContext(TrelloContext);
+
+  const [note, setNote] = useState("Your notes here...");
 
   const closeCardInfo = () => {
     onCloseCardInfo();
@@ -21,8 +26,8 @@ export const CardInfo = ({ isOpen, onCloseCardInfo, listName }) => {
     inputRef.current.style.cursor = 'text';
   };
 
-  const hanldeChangeNote = (e) => {
-    setNote(e.target.value);
+  const handleInputChange = (e) => {
+    setNote(e.target.textContent); // Actualiza el estado note con el contenido de la etiqueta <p>
   };
 
   const handleContainerClick = () => {
@@ -33,6 +38,11 @@ export const CardInfo = ({ isOpen, onCloseCardInfo, listName }) => {
   const handleInputClick = (e) => {
     e.stopPropagation();
   };
+
+  const saveNotes = () => {
+    onSaveCardNotes(listId, cardIndex, note);
+  }
+  
 
   return (
     <section
@@ -58,17 +68,17 @@ export const CardInfo = ({ isOpen, onCloseCardInfo, listName }) => {
             <p
               contentEditable={true}
               onClick={handleFocus}
-              onChange={hanldeChangeNote}
               ref={inputRef}
-              value={note}
+              defaultValue={note}
               onFocus={handleFocus}
               onClick={handleInputClick}
+              onInput={handleInputChange}
             >
               Add your notes here...
             </p>
           </div>
           <div className="saveNote">
-            <button className='btnsave'>Save</button>
+            <button className='btnsave' onClick={saveNotes}>Save</button>
           </div>
         </section>
       </section>
@@ -80,4 +90,6 @@ CardInfo.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onCloseCardInfo: PropTypes.func.isRequired,
   listName: PropTypes.string.isRequired,
+  listId: PropTypes.number,
+  cardIndex: PropTypes.number
 };

@@ -25,7 +25,7 @@ export const TrelloContextProvider = (props) => {
           if (listCard.listCardId === uniqueId) {
             listCard.cards.push({
               cardId: listCard.cards.length+1,
-              notes: 'sdsd'
+              notes: ''
             });
           }
           return listCard;
@@ -46,7 +46,23 @@ export const TrelloContextProvider = (props) => {
         });
 
         setListCards(updatedListCards);
-      }
+      };
+
+      const saveCardNotes = (listId, cardIndex, content) => {
+
+        const updatedListCards = listCards.map((listCard) => {
+            if(listCard.listCardId === listId) {
+                listCard.cards.map((card, index) => {
+                    if(index === cardIndex) {
+                        return card.notes = content;
+                    }
+                })
+            }
+            return listCard;
+        })
+
+        setListCards(updatedListCards);
+      };
 
     return (
         <TrelloContext.Provider value={{
@@ -54,7 +70,8 @@ export const TrelloContextProvider = (props) => {
             onAddListCard: addListCard,
             onDeleteListCard: deleteListCard,
             onAddCardInList: addCardInList,
-            onDeleteCard: deleteCard
+            onDeleteCard: deleteCard,
+            onSaveCardNotes: saveCardNotes
         }}>
             {props.children}
         </TrelloContext.Provider>
