@@ -26,7 +26,6 @@ export const ListCard = ({ onUpdateStatus, uniqueId }) => {
   }, []);
 
 
-
   return (
     <div className="listContainer"  >
       <article className="title">
@@ -45,9 +44,9 @@ export const ListCard = ({ onUpdateStatus, uniqueId }) => {
         {listCards
           .filter((listCard) => listCard.listCardId === uniqueId)
           .map((listCard) =>
-            listCard.cards.map((card) => (
+            listCard.cards.map((card, index) => (
               <div className="contCard" key={card.cardId} >
-                <Card />
+                <Card listId={uniqueId} cardId={index}/>
               </div>
             ))
           )}

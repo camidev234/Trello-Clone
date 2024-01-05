@@ -24,21 +24,36 @@ export const TrelloContextProvider = (props) => {
         const updatedListCards = listCards.map((listCard) => {
           if (listCard.listCardId === uniqueId) {
             listCard.cards.push({
-              cardId: listCard.cards.length + 1,
+              cardId: listCard.cards.length+1,
             });
           }
           return listCard;
         });
-        console.log(updatedListCards);
         setListCards(updatedListCards);
       };
+
+    
+      const deleteCard = (listId, cardId) => {
+        console.log(listCards.filter((lc) => lc.listCardId === listId))
+
+        const updatedListCards = listCards.map((listCard) => {
+            if(listCard.listCardId === listId){
+                listCard.cards.splice(cardId, 1);
+                console.log(listCard.cards);
+            }
+            return listCard;
+        });
+
+        setListCards(updatedListCards);
+      }
 
     return (
         <TrelloContext.Provider value={{
             listCards,
             onAddListCard: addListCard,
             onDeleteListCard: deleteListCard,
-            onAddCardInList: addCardInList
+            onAddCardInList: addCardInList,
+            onDeleteCard: deleteCard
         }}>
             {props.children}
         </TrelloContext.Provider>
