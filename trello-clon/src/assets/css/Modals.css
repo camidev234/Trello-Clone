@@ -1,0 +1,10 @@
+.modalWindow {
+    background-color:#2d3748;
+    min-width: 28% !important;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 10px;
+    align-items: center;
+}

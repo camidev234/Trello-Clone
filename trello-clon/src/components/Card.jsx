@@ -1,14 +1,18 @@
-import { useState, useEffect, useRef, useContext } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import '../assets/css/Card.css'
 import { BsFillTrash3Fill } from "react-icons/bs";
 import PropTypes from 'prop-types';
-import { TrelloContext } from '../context/TrelloContext';
+// import { TrelloContext } from '../context/TrelloContext';
+import { ConfirmCard } from './ConfirmCard';
+
 
 export const Card = ({ listId, cardIndex }) => {
 
-    const { onDeleteCard } = useContext(TrelloContext);
+    // const { onDeleteCard } = useContext(TrelloContext);
 
     const [ title, setTitle] = useState('');
+
+    const [ modalUsed, setModalUsed ] = useState(false);
 
     const textareaRef = useRef(null);
 
@@ -27,11 +31,16 @@ export const Card = ({ listId, cardIndex }) => {
     };
 
 
-    const deleteCard = () => {
-        onDeleteCard(listId, cardIndex);
+    const openModal = () => {
+        setModalUsed(true);
+    }
+
+    const closeModal = () => {
+        setModalUsed(false);
     }
 
     return (
+        <>
         <div
          className="card"
         >
@@ -45,9 +54,18 @@ export const Card = ({ listId, cardIndex }) => {
         />
             </article>
             <article className="delete">
-                <button onClick={deleteCard}><BsFillTrash3Fill /></button>
+                <button onClick={openModal}><BsFillTrash3Fill /></button>
             </article>
         </div>
+
+        <div className="mm">
+            <div className="modalComponent">
+                <ConfirmCard listId={listId} cardIndex={cardIndex} modalUsed={modalUsed} onCloseModal={closeModal}/>
+            </div>
+        </div>
+
+        </>
+        
     )
 }
 
