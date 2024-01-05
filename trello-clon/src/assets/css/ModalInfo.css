@@ -1,0 +1,113 @@
+.modalVisible {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalNone {
+    display: none;
+}
+
+.modalInfoContent {
+    width: 40%;
+    height: 87%;
+    background-color:#2d3748;
+    overflow: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(92, 92, 92, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+    scrollbar-width: thin;
+    scrollbar-color: #2d3748 #192029; 
+  
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3); ;
+      border-radius: 8px; 
+    }
+  
+    &::-webkit-scrollbar-track {
+      background-color: #192029; 
+      border-radius: 8px; 
+    }
+}
+
+.modalInfoContent .infoTitle {
+    width: 100%;
+    height: 12%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.infoTitle .titleInfo {
+    height: 100%;
+    width: 83%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.titleInfo h4, #span {
+    margin-left: 40px;
+}
+
+.infoTitle .closeModal {
+    width: 17%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeModal button {
+    width: 42%;
+    height: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.closeModal button:hover {
+    background: rgba(255, 255, 255, 0.3); 
+}
+
+.modalInfoContent .cardNotes {
+    width: 100%;
+    min-height: 88%;
+    max-height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardNotes .tn {
+    width: 85%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.modalInfoContent .cardNotes .cardNotesInfo {
+    box-sizing: border-box;
+    width: 85%;
+    padding: 35px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px; 
+    margin-bottom: 27px;
+}

@@ -25,6 +25,7 @@ export const TrelloContextProvider = (props) => {
           if (listCard.listCardId === uniqueId) {
             listCard.cards.push({
               cardId: listCard.cards.length+1,
+              notes: 'sdsd'
             });
           }
           return listCard;

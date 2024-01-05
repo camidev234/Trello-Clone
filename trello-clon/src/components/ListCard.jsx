@@ -6,7 +6,8 @@ import { Card } from "./Card";
 import { TrelloContext } from "../context/TrelloContext";
 
 export const ListCard = ({ onUpdateStatus, uniqueId }) => {
-  const [titleContent, setTitleContent] = useState("");
+    
+  const [titleContent, setTitleContent] = useState('');
   const { listCards } = useContext(TrelloContext);
 
   const handleTitleChange = (e) => {
@@ -26,7 +27,7 @@ export const ListCard = ({ onUpdateStatus, uniqueId }) => {
         <h5>
           <input
             type="text"
-            value={titleContent || `My list ${uniqueId}`} 
+            value={titleContent || setTitleContent(`My list ${uniqueId}`)} 
             onChange={handleTitleChange}
             placeholder="Title here"
             ref={inputRef}
@@ -40,7 +41,7 @@ export const ListCard = ({ onUpdateStatus, uniqueId }) => {
           .map((listCard) =>
             listCard.cards.map((card, index) => (
               <div className="contCard" key={card.cardId} >
-                <Card listId={uniqueId} cardIndex={index}/>
+                <Card listId={uniqueId} cardIndex={index} listName={titleContent}/>
               </div>
             ))
           )}

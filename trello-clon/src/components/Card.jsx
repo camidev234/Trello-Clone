@@ -4,15 +4,17 @@ import { BsFillTrash3Fill, BsEyeFill } from "react-icons/bs";
 import PropTypes from 'prop-types';
 // import { TrelloContext } from '../context/TrelloContext';
 import { ConfirmCard } from './ConfirmCard';
+import { CardInfo } from './CardInfo';
 
-
-export const Card = ({ listId, cardIndex }) => {
+export const Card = ({ listId, cardIndex, listName }) => {
 
     // const { onDeleteCard } = useContext(TrelloContext);
 
     const [ title, setTitle] = useState('');
 
     const [ modalUsed, setModalUsed ] = useState(false);
+
+    const [ infoView, setInfoView ] = useState(false);
 
     const textareaRef = useRef(null);
 
@@ -39,6 +41,14 @@ export const Card = ({ listId, cardIndex }) => {
         setModalUsed(false);
     }
 
+    const openCardInfo = () => {
+        setInfoView(true);
+    }
+
+    const closeCardInfo = () => {
+        setInfoView(false);
+    }
+
     return (
         <>
         <div
@@ -55,7 +65,7 @@ export const Card = ({ listId, cardIndex }) => {
             </article>
             <article className="actionsCard">
                 <button onClick={openModal}><BsFillTrash3Fill style={{fontSize: '11px'}}/></button>
-                <button><BsEyeFill style={{fontSize: '11px'}}/></button>
+                <button onClick={openCardInfo}><BsEyeFill style={{fontSize: '11px'}}/></button>
             </article>
         </div>
 
@@ -65,6 +75,16 @@ export const Card = ({ listId, cardIndex }) => {
             </div>
         </div>
 
+        <div className="cardInfo">
+            <CardInfo 
+             isOpen={infoView} 
+             onCloseCardInfo={closeCardInfo} 
+             listName={listName} 
+             listId={listId} 
+             cardIndex={cardIndex}
+            />
+        </div>
+
         </>
         
     )
@@ -72,5 +92,6 @@ export const Card = ({ listId, cardIndex }) => {
 
 Card.propTypes = {
     listId: PropTypes.number.isRequired,
-    cardIndex: PropTypes.number.isRequired
+    cardIndex: PropTypes.number.isRequired,
+    listName: PropTypes.string.isRequired
 }
