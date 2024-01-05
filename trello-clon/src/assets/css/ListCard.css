@@ -17,6 +17,7 @@
 .listContainer .title {
   width: 100%;
   height: 45px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,6 +52,7 @@
   flex-direction: column;
   gap: 7px;
   align-items: center;
+  /* background-color: brown; */
 
   scrollbar-width: thin;
   scrollbar-color: #2d3748 #192029; 
@@ -68,4 +70,12 @@
     background-color: #192029; 
     border-radius: 8px; 
   }
+}
+
+.contCard {
+  min-width: 95%;
+    background-color: #222020;
+    box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);  
+    border-radius: 10px;
+    display: flex;
 }

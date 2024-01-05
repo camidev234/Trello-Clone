@@ -1,8 +1,6 @@
 .card {
-    min-width: 95%;
-    min-height: 35px;
-    max-height: 300px;
-    background-color: #222020;
+    min-width: 100%;
+    height: 100%;
     box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);  
     border-radius: 10px;
     display: flex;
@@ -12,22 +10,27 @@
   
   .card .CardTitle {
     min-width: 87%;
-    height: 100%;
+    /* background-color: aqua; */
+    min-height: 40px;
+    max-height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
   .card .CardTitle textarea {
-    min-height: 20px; /* Establecer la altura fija */
-    width: 90%;
-    outline: none;
-    font-family: sans-serif;
+    width: 91%;
     border: none;
-    background: none;
+    outline: none;
+    /* background: aqua; */
     resize: none;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    background: none;
+  }
+
+  .CardTitle textarea:focus {
+    border: 1px solid white;
+    outline: 1px solid white;
+    border-radius: 5px;
   }
   
   .card .delete {

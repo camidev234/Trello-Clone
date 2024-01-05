@@ -16,7 +16,6 @@ export const ListCard = ({ onUpdateStatus, uniqueId }) => {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    // Enfocar el input después de un pequeño retraso para asegurar que se haya renderizado
     const timeoutId = setTimeout(() => {
       if (inputRef.current) {
         inputRef.current.focus();
@@ -25,6 +24,7 @@ export const ListCard = ({ onUpdateStatus, uniqueId }) => {
 
     return () => clearTimeout(timeoutId);
   }, []);
+
 
 
   return (
@@ -45,7 +45,11 @@ export const ListCard = ({ onUpdateStatus, uniqueId }) => {
         {listCards
           .filter((listCard) => listCard.listCardId === uniqueId)
           .map((listCard) =>
-            listCard.cards.map((card) => <Card key={card.cardId} />)
+            listCard.cards.map((card) => (
+              <div className="contCard" key={card.cardId} >
+                <Card />
+              </div>
+            ))
           )}
       </section>
       <article className="bnts">
