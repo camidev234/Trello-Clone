@@ -9,6 +9,7 @@ export const ListsContainer = () => {
 
   const [ addIsUsed, setAddIsUsed ] = useState(false);
 
+
   const addListCard = () => {
     setAddIsUsed(true)
     onAddListCard();
@@ -24,7 +25,11 @@ export const ListsContainer = () => {
         listCards.map((card) => {
             return (
               <div className="cccc" key={card.listCardId}>
-                <ListCard  onUpdateStatus={updateStatus} state={addIsUsed} uniqueId={card.listCardId}/>
+                <ListCard 
+                onUpdateStatus={updateStatus} 
+                state={addIsUsed} 
+                uniqueId={card.listCardId}
+                />
               </div>
             )
         })

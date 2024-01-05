@@ -4,7 +4,7 @@ import { BsFillTrash3Fill } from "react-icons/bs";
 import PropTypes from 'prop-types';
 import { TrelloContext } from '../context/TrelloContext';
 
-export const Card = ({ listId, cardId }) => {
+export const Card = ({ listId, cardIndex }) => {
 
     const { onDeleteCard } = useContext(TrelloContext);
 
@@ -24,11 +24,11 @@ export const Card = ({ listId, cardId }) => {
         const inputElement = e.target;
         inputElement.style.height = 'auto';
         inputElement.style.height = `${inputElement.scrollHeight}px`;
-      };
+    };
 
 
     const deleteCard = () => {
-        onDeleteCard(listId, cardId);
+        onDeleteCard(listId, cardIndex);
     }
 
     return (
@@ -39,6 +39,7 @@ export const Card = ({ listId, cardId }) => {
             <textarea
             onChange={handleChange}
             onInput={handleInput}
+            placeholder='Card Title'
             value={title}
             ref={textareaRef}
         />
@@ -52,5 +53,5 @@ export const Card = ({ listId, cardId }) => {
 
 Card.propTypes = {
     listId: PropTypes.number.isRequired,
-    cardId: PropTypes.number.isRequired
+    cardIndex: PropTypes.number.isRequired
 }

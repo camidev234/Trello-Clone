@@ -16,13 +16,7 @@ export const ListCard = ({ onUpdateStatus, uniqueId }) => {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      if (inputRef.current) {
-        inputRef.current.focus();
-      }
-    }, 0);
-
-    return () => clearTimeout(timeoutId);
+    inputRef.current.select();
   }, []);
 
 
@@ -32,7 +26,7 @@ export const ListCard = ({ onUpdateStatus, uniqueId }) => {
         <h5>
           <input
             type="text"
-            value={titleContent}
+            value={titleContent || `My list ${uniqueId}`} 
             onChange={handleTitleChange}
             placeholder="Title here"
             ref={inputRef}
@@ -46,7 +40,7 @@ export const ListCard = ({ onUpdateStatus, uniqueId }) => {
           .map((listCard) =>
             listCard.cards.map((card, index) => (
               <div className="contCard" key={card.cardId} >
-                <Card listId={uniqueId} cardId={index}/>
+                <Card listId={uniqueId} cardIndex={index}/>
               </div>
             ))
           )}

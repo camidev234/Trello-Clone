@@ -11,7 +11,7 @@
   .card .CardTitle {
     min-width: 87%;
     /* background-color: aqua; */
-    min-height: 40px;
+    min-height: 35px;
     max-height: 100%;
     display: flex;
     justify-content: center;
@@ -19,6 +19,7 @@
   }
   
   .card .CardTitle textarea {
+    font-family: sans-serif;
     width: 91%;
     border: none;
     outline: none;

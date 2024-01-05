@@ -33,13 +33,13 @@ export const TrelloContextProvider = (props) => {
       };
 
     
-      const deleteCard = (listId, cardId) => {
-        console.log(listCards.filter((lc) => lc.listCardId === listId))
+      const deleteCard = (listId, cardIndex) => {
+        // console.log(listCards.filter((lc) => lc.listCardId === listId))
 
         const updatedListCards = listCards.map((listCard) => {
             if(listCard.listCardId === listId){
-                listCard.cards.splice(cardId, 1);
-                console.log(listCard.cards);
+                listCard.cards.splice(cardIndex, 1);
+                // console.log(listCard.cards);
             }
             return listCard;
         });
